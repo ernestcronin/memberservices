@@ -1,6 +1,5 @@
 package com.biz.memberservices.configurations;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -14,15 +13,17 @@ import com.google.cloud.spring.pubsub.support.converter.JacksonPubSubMessageConv
 import com.google.cloud.spring.pubsub.support.converter.PubSubMessageConverter;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 @Configuration
 @Getter
 @Setter
+@RequiredArgsConstructor
 public class ApplicationConfiguration {
 
-	@Autowired
-	DatasourceConfig datasourceConfig;
+	
+	public final DatasourceConfig datasourceConfig;
 
 	@Bean
 	@Primary

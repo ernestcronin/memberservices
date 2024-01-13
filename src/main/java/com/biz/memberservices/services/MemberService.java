@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.biz.memberservices.dtos.MemberDTO;
 import com.biz.memberservices.entities.MemberEntity;
-import com.biz.memberservices.mappers.MemberDtoMapper;
+import com.biz.memberservices.mappers.MemberDTOMapper;
 import com.biz.memberservices.repositories.MemberRepository;
 import com.biz.memberservices.services.pubsub.PubSubService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,7 +30,7 @@ public class MemberService {
 
 	private final MemberRepository memberRepository;
 
-	private final MemberDtoMapper memberDtoMapper;
+	private final MemberDTOMapper memberDtoMapper;
 
 	private final PubSubService pubSubService;
 	

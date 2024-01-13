@@ -8,7 +8,7 @@ import com.biz.memberservices.dtos.MemberDTO;
 import com.biz.memberservices.entities.MemberEntity;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface MemberDtoMapper {
+public interface MemberDTOMapper {
 
 	@Mapping(target = "pid", source = "memberPid")
 	@Mapping(target = "memberIdentifier", source = "memberId")
