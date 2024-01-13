@@ -1,4 +1,4 @@
-package com.biz.configurations;
+package com.biz.memberservices.configurations;
 
 //@RunWith(SpringRunner.class)
 //@SpringBootTest

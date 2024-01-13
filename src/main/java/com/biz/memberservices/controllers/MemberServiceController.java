@@ -37,8 +37,8 @@ public class MemberServiceController {
 	public ResponseEntity<String> publishMemberEvent(@RequestParam Long pid,
 			@AuthenticationPrincipal UserPrincipal principal) {
 
-		System.out.println("pid " + pid);
-		Long resultPid = getMemberService().retrieveMemberEntityByMemberPid(pid);
+		var entity = getMemberService().retrieveMemberEntityByMemberPid(pid);
+		var resultPid = getMemberService().publishMessageToPubSub(entity);
 
 		ResponseEntity<String> response;
 		if (resultPid == null) {

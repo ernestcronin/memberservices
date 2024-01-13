@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.biz.memberservices.entities.UserEntity;
-import com.biz.memberservices.repositories.UserEntityRepository;
+import com.biz.memberservices.repositories.UserRepository;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +17,9 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class UserService {
 
-	public final UserEntityRepository userEntityRepository;
+	public final UserRepository userRepository;
 
 	public Optional<UserEntity> findUserEntityByEmail(String email) {
-		return userEntityRepository.findUserByEmail(email);
+		return userRepository.findUserByEmail(email);
 	}
 }

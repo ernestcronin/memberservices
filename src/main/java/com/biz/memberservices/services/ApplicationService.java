@@ -1,5 +1,6 @@
 package com.biz.memberservices.services;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.biz.memberservices.entities.ApplicationEntity;
@@ -13,13 +14,14 @@ import lombok.RequiredArgsConstructor;
 public class ApplicationService {
 
 	@JsonIgnore
-	private static final String APP_NAME = "MEMBER_SERVICES";
+	@Value("${com.biz.memberservice.application.name}")
+	private String applicationName;
 	
 	private final ApplicationRepository applicationRepository;
 	
 	public String retrieveApplicationPassword() {
 		
-		ApplicationEntity entity = applicationRepository.findApplicationEntityByName(APP_NAME).orElseThrow();
+		ApplicationEntity entity = applicationRepository.findApplicationEntityByName(applicationName).orElseThrow();
 		return entity.getPassword();
 	}
 }

@@ -36,7 +36,7 @@ public class MemberService {
 	
 	private ObjectMapper mapper = new ObjectMapper();
 
-	public Long retrieveMemberEntityByMemberPid(Long pid) {
+	public MemberEntity retrieveMemberEntityByMemberPid(Long pid) {
 
 		log.info("Retrieve member id with pid " + pid);
 		Optional<MemberEntity> entity = getMemberRepository().findMemberEntityByMemberPid(pid);
@@ -45,8 +45,13 @@ public class MemberService {
 			log.info("no member found for pid: " + pid);
 			return null;
 		}
-
-		MemberDTO dto = memberDtoMapper.toMemberDto(entity.get());
+		return entity.get();
+		
+	}
+	
+	public Long publishMessageToPubSub(MemberEntity entity) {
+		
+		MemberDTO dto = memberDtoMapper.toMemberDto(entity);
 		pubSubService.publishToPubSub(dto);
 		return dto.getPid();
 	}

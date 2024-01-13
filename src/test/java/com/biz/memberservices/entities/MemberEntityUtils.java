@@ -9,7 +9,7 @@ public class MemberEntityUtils {
 
 	public static MemberEntity buildMemberEntity() {
 
-		return MemberEntity.builder().memberId("12345").memberPid(1L).firstName("Ernest").lastName("Cronin")
+		return MemberEntity.builder().memberPid(1L).memberId("12345").firstName("Ernest").lastName("Cronin")
 				.birthDate(Instant.parse("1980-05-06T00:00:00Z")).build();
 	}
 }
