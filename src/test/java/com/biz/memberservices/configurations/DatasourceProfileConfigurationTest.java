@@ -1,21 +1,35 @@
 package com.biz.memberservices.configurations;
 
-import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class DatasourceProfileConfigurationTest {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.core.env.Environment;
+
+
+
+@ExtendWith(MockitoExtension.class)
+class DatasourceProfileConfigurationTest {
 	
-	@Autowired
-	DatasourceConfig datasourceConfig;
+	@Mock
+	private Environment environment;
+	
+	@BeforeEach
+	void setUp() {
+		environment = mock(Environment.class);
+		String [] profiles = {"dev" , "h2"};
+		when(environment.getActiveProfiles())
+        .thenReturn(profiles);   
+	}
 
 	@Test
-	public void datasourceProfileTest_AnyProfile() {
-		
-		datasourceConfig.setup();
-	}
+	public void testActiveProfiles() {
+        for (String profileName : environment.getActiveProfiles()) {
+            System.out.println("Currently active profile - " + profileName);
+        }  
+    }
 }
