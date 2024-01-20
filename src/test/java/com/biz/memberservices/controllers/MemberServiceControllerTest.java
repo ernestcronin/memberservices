@@ -54,7 +54,8 @@ class MemberServiceControllerTest {
 			var resultPid = memberService.publishMessageToPubSub(entity);
 
 			ResponseEntity<String> response = new ResponseEntity<>("Sent message for member with pid: " + resultPid,
-					HttpStatus.CREATED);		
+					HttpStatus.CREATED);
+			
 			assertThat(response.getBody()).isNotNull();
 			System.out.println(response.getBody().toString());
 

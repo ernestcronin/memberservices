@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,7 +34,7 @@ public class MemberServiceController {
 		return new ResponseEntity<>(dto, HttpStatus.ACCEPTED);
 	}
 
-	@GetMapping(value = "/publishMemberEvent")
+	@PostMapping(value = "/publishMemberEvent")
 	public ResponseEntity<String> publishMemberEvent(@RequestParam Long pid,
 			@AuthenticationPrincipal UserPrincipal principal) {
 

@@ -7,17 +7,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Builder
 @Getter
-
-//spring wraps this into object authenticationToken
-
-//UserPrincipal is not a user. if a user is a person, then UP is like driver license.
-//current spring makes roles and grantedauthroties same thing. a role like ADMIN becomes a GA 
-//with prefix ROLE_ADMIN. Now spring does it automatically.
+@AllArgsConstructor
 public class UserPrincipal implements UserDetails{
 
 	/**
